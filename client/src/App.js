@@ -3,7 +3,6 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Tag from './Tag';
 import CreateTag from './CreateTag';
-import Home from './Home';
 import UpdateTag from './UpdateTag';
 import Insights from './Insights';
 import Map from './Map';
@@ -18,8 +17,6 @@ function App() {
           <Route path='/update/:id' element={<UpdateTag />} />
           <Route path='/insights' element={<Insights />}></Route>
           <Route path='/map' element={<Map />}></Route>
-
-
 
 
         </Routes>

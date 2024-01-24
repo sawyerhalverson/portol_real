@@ -47,7 +47,7 @@ const fetchData = async () => {
   }, []); // Empty dependency array ensures useEffect runs only once
 
   return (
-    <div className="">
+    <div className="" style={{height:"600px", width:"98%"}}>
         <Link to="/">Back to Tags</Link>
       {/* You can display the data or pass it to the BarChart component */}
       {tagData && tagData.labels.length > 0 ? (

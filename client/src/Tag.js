@@ -23,15 +23,15 @@ const handleDelete = async (id) => {
 }
 
     return (
-        <div className='d-flex bg-primary justify-content-center align-items-center'>
-            <div className='w-50 bg-white rounded p-3.5'>
+        <div className='d-flex justify-content-center align-items-center' style={{ backgroundColor: 'white' }}>
+            <div className='w-50 rounded p-3.5' style={{backgroundColor: 'white'}}>
             <Link to="http://127.0.0.1:5500/index.html" className='btn'>Home</Link>
             <Link to="/insights" className='btn'>Insights</Link>
             <Link to="/map" className='btn'>Map</Link>
 
 
                 <Link to ="/create" className='btn btn-success'>Add Tag</Link>
-                <table className='table'>
+                <table className='table' style={{backgroundColor:'white'}}>
                     <thead>
                         <tr>
                             <th>Tag ID</th>
