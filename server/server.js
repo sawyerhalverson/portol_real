@@ -3,6 +3,7 @@ import mysql from 'mysql';
 import cors from 'cors';
 
 const app = express();
+app.use(express.json());
 app.use(cors());
 
 const db = mysql.createConnection({
@@ -20,6 +21,21 @@ app.get("/", (req,res)=>{
         return res.json(data);
     })
 })
+
+app.post('/create', (req, res) => {
+    const { location, url } = req.body;
+    const sql = "INSERT INTO tags (`location`, `destination_link`) VALUES (?, ?)";
+    
+    db.query(sql, [location, url], (err, data) => {
+        if (err) {
+            console.error("MySQL Error:", err);
+            return res.json("error");
+        }
+        return res.json(data);
+    });
+});
+
+
 
 app.listen(8081, ()=> {
     console.log("Listening");

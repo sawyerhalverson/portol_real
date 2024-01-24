@@ -14,6 +14,7 @@ function CreateTag(){
         axios.post('http://localhost:8081/create', {location, url})
         .then(res => {
             console.log(res);
+            navigate('/')
         }).catch(err => console.log(err));
     }
     return(
@@ -25,14 +26,14 @@ function CreateTag(){
                         <div className="mb-2">
                             <label htmlFor="">Location</label>
                             <input type="text" placeholder="Enter Location" className="form-control"
-                            onChange = {l => setLocation(l.target.value)}
+                            onChange = {e => setLocation(e.target.value)}
                             />
 
                         </div>
                         <div className="mb-2">
                             <label htmlFor="">URL</label>
                             <input type="text" placeholder="Enter URL" className="form-control" 
-                            onChange = {u => setLocation(u.target.value)}/>
+                            onChange = {e => setUrl(e.target.value)}/>
 
                     
                         </div>
