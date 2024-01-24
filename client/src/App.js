@@ -6,6 +6,7 @@ import CreateTag from './CreateTag';
 import Home from './Home';
 import UpdateTag from './UpdateTag';
 import Insights from './Insights';
+import Map from './Map';
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
           <Route path='/create' element={<CreateTag />}></Route>
           <Route path='/update/:id' element={<UpdateTag />} />
           <Route path='/insights' element={<Insights />}></Route>
+          <Route path='/map' element={<Map />}></Route>
+
 
 
 

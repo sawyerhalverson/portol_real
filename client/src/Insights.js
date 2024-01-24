@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import BarChart from "./components/BarChart";
 import axios from "axios";
+import {Link} from 'react-router-dom'
 
 function Insights() {
+
   const [tagData, setTagData] = useState({
     labels: [],
     datasets: [
@@ -45,7 +47,8 @@ const fetchData = async () => {
   }, []); // Empty dependency array ensures useEffect runs only once
 
   return (
-    <div className="vh-100">
+    <div className="">
+        <Link to="/">Back to Tags</Link>
       {/* You can display the data or pass it to the BarChart component */}
       {tagData && tagData.labels.length > 0 ? (
         <BarChart chartData={tagData} />
