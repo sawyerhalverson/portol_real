@@ -35,7 +35,33 @@ app.post('/create', (req, res) => {
     });
 });
 
+app.put('/update/:id', (req, res) => {
+    const { location, url } = req.body;
+    const sql = "UPDATE tags SET `location` = ?, `destination_link` = ? WHERE tag_id = ?";
+    const values = [location, url, req.params.id];
 
+    db.query(sql, values, (err, data) => {
+        if (err) {
+            console.error("MySQL Error:", err);
+            return res.json("error");
+        }
+        return res.json(data);
+    });
+});
+
+
+app.delete('/tag/:id', (req, res) => {
+    const { location, url } = req.body;
+    const sql = "delete from tags where `tag_id` = ?";
+    const id = req.params.id;
+    db.query(sql, id, (err, data) => {
+        if (err) {
+            console.error("MySQL Error:", err);
+            return res.json("error");
+        }
+        return res.json(data);
+    });
+});
 
 app.listen(8081, ()=> {
     console.log("Listening");

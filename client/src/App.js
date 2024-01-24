@@ -4,6 +4,8 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Tag from './Tag';
 import CreateTag from './CreateTag';
 import Home from './Home';
+import UpdateTag from './UpdateTag';
+import Insights from './Insights';
 
 function App() {
   return (
@@ -12,7 +14,9 @@ function App() {
         <Routes>
           <Route path='/' element={<Tag />}></Route>
           <Route path='/create' element={<CreateTag />}></Route>
-          <Route path='/home' element={<Home />} />
+          <Route path='/update/:id' element={<UpdateTag />} />
+          <Route path='/insights' element={<Insights />}></Route>
+
 
 
         </Routes>
