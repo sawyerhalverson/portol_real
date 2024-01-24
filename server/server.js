@@ -22,6 +22,25 @@ app.get("/", (req,res)=>{
     })
 })
 
+app.get("/insights", (req, res) => {
+    const query = `
+      SELECT t.tag_id, MAX(t.location) AS location, MAX(t.destination_link) AS destination_link, COUNT(tc.tag_id) AS taps, MAX(tc.tap_datetime) AS most_recent_tap_datetime
+      FROM tags t
+      JOIN tap_counts tc ON t.tag_id = tc.tag_id
+      GROUP BY t.tag_id
+      ORDER BY taps DESC
+    `;
+  
+    db.query(query, (error, results) => {
+      if (error) {
+        console.error("Error executing SQL query:", error);
+        res.status(500).send("Internal Server Error");
+      } else {
+        res.json(results);
+      }
+    });
+  });
+
 app.post('/create', (req, res) => {
     const { location, url } = req.body;
     const sql = "INSERT INTO tags (`location`, `destination_link`) VALUES (?, ?)";
