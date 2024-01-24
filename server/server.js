@@ -9,7 +9,7 @@ const db = mysql.createConnection({
     user: 'root',
     host: 'localhost',
     password: 'root123',
-    database: 'portolapp'
+    database: 'portol'
 
 });
 
